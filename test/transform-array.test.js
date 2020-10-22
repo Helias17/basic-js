@@ -56,7 +56,7 @@ describe('Transform array', () => {
                 [1, 2, 3, '--double-next'],
                 [1, 2, 3, '--discard-next']
             ];
-            
+
             cases.forEach(currCase => {
                 assert.deepStrictEqual(transform(currCase), [1, 2, 3]);
             });
@@ -92,8 +92,9 @@ describe('Transform array', () => {
         it.optional('control sequences work properly', () => {
             for(let i = 0; i < 50; i += 1) {
                 const { input, output } = createSample(i);
+                //output != ''&&console.log('\n Input is: ' + input + '\n Output is:' + output);
                 assert.deepStrictEqual(transform(input), output);
-            }   
+            }
         });
 
         it.optional('doesn\'t change initial array', () => {
